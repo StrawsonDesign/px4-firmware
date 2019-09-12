@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# PX4 FMUv5m specific board sensors init
+#------------------------------------------------------------------------------
+
+# Internal SPI bus ICM-20648
+icm20648 start
+
+# Internal I2C Baro
+bmp388 -I start
+
+# Possible external compasses
+ist8310 -C -b 1 start
+ist8310 -C -b 2 start
+hmc5883 -C -T -X start
+qmc5883 -X start
+
+# VOXL Power Monitor
+voxlpm -R start
