@@ -3,11 +3,17 @@
 # PX4 FMUv5m specific board sensors init
 #------------------------------------------------------------------------------
 
-# Internal SPI bus ICM-20648
-icm20648 start
+# Start Digital power monitors
+voxlpm -R start
 
-# Internal I2C Baro
-bmp388 -I start
+# Internal SPI bus ICM-20602
+mpu6000 -R 8 -s -T 20602 start
+
+# Internal SPI bus BMI088 accel
+#bmi088 -A -R 10 start
+
+# Internal SPI bus BMI088 gyro
+#bmi088 -G -R 10 start
 
 # Possible external compasses
 ist8310 -C -b 1 start
@@ -15,5 +21,5 @@ ist8310 -C -b 2 start
 hmc5883 -C -T -X start
 qmc5883 -X start
 
-# VOXL Power Monitor
-voxlpm -R start
+# Internal I2C Baro
+bmp388 -I start
