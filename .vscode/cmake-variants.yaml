@@ -61,6 +61,11 @@ CONFIG:
       buildType: MinSizeRel
       settings:
         CONFIG: intel_aerofc-v1_default
+    modalai_fmu-v5m_default:
+      short: modalai_fmu-v5m
+      buildType: MinSizeRel
+      settings:
+        CONFIG: modalai_fmu-v5m_default
     mro_ctrl-zero-f7_default:
       short: mro_ctrl-zero-f7
       buildType: MinSizeRel
