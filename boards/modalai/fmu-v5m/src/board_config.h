@@ -444,13 +444,10 @@
 #define GPIO_VDD_3V3_SPEKTRUM_POWER_EN  /* PH2  */ (GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_CLEAR|GPIO_PORTH|GPIO_PIN2)
 #define GPIO_VDD_3V3_SD_CARD_EN         /* PC13 */ (GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_CLEAR|GPIO_PORTC|GPIO_PIN13)
 
-/* Spare GPIO */
+/* For primary/backup signaling with MSS, 2 pins on J4 are exposed */
 
-#define GPIO_PH11                       /* PH11  */  (GPIO_INPUT|GPIO_FLOAT|GPIO_PORTH|GPIO_PIN1)
-
-/* ETHERNET GPIO */
-
-#define GPIO_ETH_POWER_EN              /* PG15 */ (GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_CLEAR|GPIO_PORTG|GPIO_PIN15)
+#define GPIO_MSS_STATUS_OUT             /* PE4 */ (GPIO_OUTPUT|GPIO_PUSHPULL|GPIO_SPEED_2MHz|GPIO_OUTPUT_CLEAR|GPIO_PORTE|GPIO_PIN4)
+#define GPIO_MSS_STATUS_IN              /* PE3 */ (GPIO_INPUT|GPIO_FLOAT|GPIO_PORTE|GPIO_PIN3)
 
 
 /* Define True logic Power Control in arch agnostic form */
@@ -633,13 +630,13 @@
 		GPIO_VDD_3V3_SENSORS4_EN,         \
 		GPIO_VDD_3V3_SPEKTRUM_POWER_EN,   \
 		GPIO_VDD_3V3_SD_CARD_EN,          \
-		GPIO_PH11,                        \
-		GPIO_ETH_POWER_EN,                \
 		GPIO_A71CH_nRST,                  \
 		GPIO_TONE_ALARM_IDLE,             \
 		GPIO_nSAFETY_SWITCH_LED_OUT_INIT, \
 		GPIO_SAFETY_SWITCH_IN,            \
-		GPIO_nARMED_INIT                  \
+		GPIO_nARMED_INIT,                 \
+		GPIO_MSS_STATUS_OUT,              \
+		GPIO_MSS_STATUS_IN                \
 	}
 
 #define BOARD_ENABLE_CONSOLE_BUFFER

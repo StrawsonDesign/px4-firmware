@@ -36,6 +36,8 @@
 #define J4_PIN3 _MK_GPIO_OUTPUT(GPIO_USART2_TX)
 #define J4_PIN4 _MK_GPIO_OUTPUT(GPIO_USART2_RTS)
 #define J4_PIN6 _MK_GPIO_OUTPUT(GPIO_USART2_CTS)
+#define J4_PIN7 _MK_GPIO_OUTPUT(GPIO_MSS_STATUS_OUT)
+#define J4_PIN8 _MK_GPIO_INPUT(GPIO_MSS_STATUS_IN)
 
 // J5 - TELEMETRY CONNECTOR
 #define J5_PIN2 _MK_GPIO_OUTPUT(GPIO_UART7_TX)
@@ -97,7 +99,7 @@ static void print_usage_con_gpio_test(void)
 {
 	PRINT_MODULE_USAGE_NAME_SIMPLE("modalai con", "command");
 	PRINT_MODULE_USAGE_COMMAND_DESCR("1",  "W<3,6> R<2,6>, <0-1>");
-	PRINT_MODULE_USAGE_COMMAND_DESCR("4",  "W<2-4,6>, <0-1>");
+	PRINT_MODULE_USAGE_COMMAND_DESCR("4",  "W<2-4,6-7> R<8>, <0-1>");
 	PRINT_MODULE_USAGE_COMMAND_DESCR("5",  "W<2-5>,   <0-1>");
 	PRINT_MODULE_USAGE_COMMAND_DESCR("6",  "W<2-5>,   <0-1>");
 	PRINT_MODULE_USAGE_COMMAND_DESCR("7",  "W<2-9>,   <0-1>");
@@ -172,6 +174,16 @@ static int con_gpio_test(uint8_t con, uint8_t pin, bool state)
 		case 6:
 			stm32_configgpio(J4_PIN6);
 			stm32_gpiowrite(J4_PIN6, state);
+			break;
+
+		case 7:
+			stm32_configgpio(J4_PIN7);
+			stm32_gpiowrite(J4_PIN7, state);
+			break;
+
+		case 8:
+			stm32_configgpio(J4_PIN8);
+			state = stm32_gpioread(J4_PIN8);
 			break;
 
 		default:
