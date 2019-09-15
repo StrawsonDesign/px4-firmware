@@ -65,16 +65,16 @@ static constexpr uint32_t spi1selects_gpio[] = PX4_SENSORS1_BUS_CS_GPIO;
 static constexpr uint32_t spi2selects_gpio[] = PX4_SENSORS2_BUS_CS_GPIO;
 #endif
 #ifdef CONFIG_STM32F7_SPI3
-static constexpr uint32_t spi3selects_gpio[] = PX4_SENSORS3_BUS_CS_GPIO;
+static constexpr uint32_t spi3selects_gpio[] = 0; // Not used
 #endif
 #ifdef CONFIG_STM32F7_SPI4
-static constexpr uint32_t spi4selects_gpio[] = PX4_SENSORS4_BUS_CS_GPIO;
+static constexpr uint32_t spi4selects_gpio[] = 0; // Not used
 #endif
 #ifdef CONFIG_STM32F7_SPI5
 static constexpr uint32_t spi5selects_gpio[] = PX4_MEMORY_BUS_CS_GPIO;
 #endif
 #ifdef CONFIG_STM32F7_SPI6
-static constexpr uint32_t spi6selects_gpio[] = PX4_EXTERNAL1_BUS_CS_GPIO;
+static constexpr uint32_t spi6selects_gpio[] = PX4_SENSORS3_BUS_CS_GPIO;
 #endif
 
 /************************************************************************************
@@ -290,7 +290,7 @@ __EXPORT uint8_t stm32_spi5status(FAR struct spi_dev_s *dev, uint32_t devid)
 #ifdef CONFIG_STM32F7_SPI6
 __EXPORT void stm32_spi6select(FAR struct spi_dev_s *dev, uint32_t devid, bool selected)
 {
-	ASSERT(PX4_SPI_BUS_ID(devid) == PX4_SPI_BUS_EXTERNAL1);
+	ASSERT(PX4_SPI_BUS_ID(devid) == PX4_SPI_BUS_SENSORS3);
 
 	// Making sure the other peripherals are not selected
 	for (auto cs : spi6selects_gpio) {
