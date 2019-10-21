@@ -46,7 +46,7 @@ build:
     - rm -rf $DEST_DIR/latest/
     - mkdir -p $DEST_DIR/latest/
     - cp build/modalai_fc-v1_default/modalai_fc-v1.bin $DEST_DIR/$DATE/
-    - cp build/modalai_fc-v1_default/modalai_fc-v1default.elf $DEST_DIR/$DATE/
+    - cp build/modalai_fc-v1_default/modalai_fc-v1_default.elf $DEST_DIR/$DATE/
     - cp build/modalai_fc-v1_default/modalai_fc-v1_default.px4 $DEST_DIR/$DATE/
     - cp build/modalai_fc-v1_default/modalai_fc-v1.bin $DEST_DIR/latest/
     - cp build/modalai_fc-v1_default/modalai_fc-v1_default.elf $DEST_DIR/latest/
