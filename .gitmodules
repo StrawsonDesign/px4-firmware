@@ -32,8 +32,8 @@
 	branch = master
 [submodule "src/lib/ecl"]
 	path = src/lib/ecl
-	url = https://github.com/PX4/ecl.git
-	branch = master
+	url = https://github.com/modalai/ecl.git
+	branch = pr-ekf2-init-vio
 [submodule "boards/atlflight/cmake_hexagon"]
 	path = boards/atlflight/cmake_hexagon
 	url = https://github.com/PX4/cmake_hexagon.git
